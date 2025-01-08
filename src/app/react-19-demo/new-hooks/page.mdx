@@ -1,0 +1,44 @@
+import { Demo } from "./(components)";
+import { HighLight, Sandpack } from "@/components";
+
+## useActionState
+
+### 1. useActionState là gì?
+
+- **useActionState** là một hook được thiết kế để giúp quản lý trạng thái của các thao tác bất đồng bộ (asynchronous actions) một cách **dễ dàng và hiệu quả**.
+- **Nó theo dõi:**
+  - Trạng thái chờ (loading state)
+  - Lỗi (error state)
+- **Trước đây, chúng ta thường phải dùng useState để quản lý thủ công từng trạng thái, như:**
+  - Có đang chờ không (isLoading)?
+  - Có lỗi không (error)?
+
+### 2. Khi nào dùng useActionState?
+
+Hãy tưởng tượng bạn đang làm một biểu mẫu:
+
+- Người dùng nhập thông tin rồi nhấn Submit.
+- Trong lúc server xử lý, nút Submit bị khóa để tránh việc nhấn liên tục.
+- Nếu server trả lỗi, cần hiển thị thông báo lỗi. <br /> <br />
+
+Trong tình huống này, useActionState cực kỳ phù hợp.
+
+### 3. Cách sử dụng useActionState
+
+Cú pháp cơ bản
+
+<br />
+<HighLight
+  language="tsx"
+  code={`const [formState, submitAction, isPending] = useActionState(async (previousState, formData) => {
+      const response = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(true);
+        }, 1000);
+      });
+  }, null);`}
+/>
+
+### 4. Ví dụ
+
+<Demo />

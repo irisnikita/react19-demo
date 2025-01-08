@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./base.scss";
+@import "./mdx.scss";
+
+body {
+  color: var(--color-text);
+  background: var(--background);
+  font-family: Quicksand, sans-serif;
+}
+
+.ant-layout-content {
+  flex: auto;
+  color: var(--color-text);
+}

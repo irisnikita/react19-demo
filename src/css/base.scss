@@ -1,0 +1,23 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /*  Colors */
+  --color-primary: #722ed1;
+  --color-text: #000000;
+  --color-text-description: #8c8c8c;
+  --color-button-text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /*  Colors */
+    --color-primary: #9254de;
+    --color-text: var(--foreground);
+    --color-text-description: #8c8c8c;
+    --color-button-text: #0a0a0a;
+  }
+}

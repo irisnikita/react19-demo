@@ -1,0 +1,58 @@
+import { Demo, ActionsAsyncTransitions } from "./(components)";
+import { HighLight } from "@/components";
+import { Alert, Button } from "antd";
+
+## Async Transitions
+
+<Alert
+  message={<div className="font-bold">Kiến thức nhắc lại!</div>}
+  description={
+    <div className="flex flex-col gap-2.5">
+      useTransitions đã có ở phiên bản React 18, giúp quản lý các cập nhật không
+      khẩn cấp để UI mượt mà hơn, giảm giật lag. Xử lý các tác vụ nặng (lọc, tìm
+      kiếm) mà không làm gián đoạn UI hoặc tối ưu trải nghiệm người dùng khi có
+      các cập nhật phức tạp.
+
+      <a href="https://codesandbox.io/p/sandbox/tkyfgs?file=%2Fsrc%2FApp.js" target="_blank">
+        <Button>Link Demo</Button>
+      </a>
+    </div>
+
+}
+/>
+
+<ActionsAsyncTransitions />
+
+## Actions
+
+<Alert
+  message={<div className="font-bold">Actions là gì?</div>}
+  description={
+    <div>
+     Theo quy ước, các hàm sử dụng các chuyển đổi không đồng bộ (async transitions) được gọi là “Actions”. <br /> <br />
+    
+    Actions tự động quản lý việc gửi dữ liệu:
+
+    <ul>
+      <li>
+        <strong>1. Trạng thái đang xử lý (Pending state):</strong>
+        <p>Actions cung cấp một trạng thái “pending” bắt đầu từ khi yêu cầu được thực hiện và tự động đặt lại khi bản cập nhật trạng thái cuối cùng được hoàn thành.</p>
+      </li>
+      <li>
+        <strong>2. Cập nhật lạc quan (Optimistic updates):</strong>
+        <p>Actions hỗ trợ hook mới useOptimistic, cho phép bạn hiển thị phản hồi tức thì cho người dùng trong khi yêu cầu vẫn đang được gửi.</p>
+      </li>
+       <li>
+        <strong>3. Xử lý lỗi (Error handling):</strong>
+        <p>Actions cung cấp khả năng xử lý lỗi, cho phép hiển thị Error Boundaries khi một yêu cầu thất bại và tự động khôi phục các cập nhật lạc quan về giá trị ban đầu.</p>
+      </li>
+      <li>
+        <strong>3. Forms:</strong>
+        <p>{`Các thẻ <form> hiện hỗ trợ truyền các hàm vào thuộc tính action và formAction. Khi truyền hàm vào thuộc tính action, các hàm này sẽ sử dụng Actions theo mặc định và tự động đặt lại form sau khi gửi.`}</p>
+      </li>
+    </ul>
+    </div>
+
+}
+type="success"
+/>
