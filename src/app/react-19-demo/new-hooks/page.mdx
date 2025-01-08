@@ -1,4 +1,9 @@
-import { Demo } from "./(components)";
+import {
+  Demo,
+  UseFormStatusDemo,
+  BeforeAndAfterUseFormStatus,
+  UseOptimisticDemo,
+} from "./(components)";
 import { HighLight, Sandpack } from "@/components";
 
 ## useActionState
@@ -42,3 +47,92 @@ Cú pháp cơ bản
 ### 4. Ví dụ
 
 <Demo />
+
+## useFormStatus
+
+### 1. useFormStatus là gì?
+
+- **useFormStatus** là một hook dùng để theo dõi trạng thái biểu mẫu (form status) trong React.
+- Nó trả thông tin về:
+  - **Trạng thái chờ** (pending): Cho biết biểu mẫu có đang trong quá trình gửi (submit) hay không.
+
+### 2. Khi nào cần sử dụng useFormStatus?
+
+Hãy tưởng tượng bạn có một biểu mẫu đăng ký tài khoản:
+
+- Người dùng nhập thông tin và nhấn Đăng ký.
+- Trong khi chờ server xử lý, bạn muốn:
+  - Hiển thị thông báo “Đang xử lý”.
+  - Vô hiệu hóa nút Đăng ký.
+
+Trước đây, bạn phải quản lý trạng thái này thủ công bằng useState. Giờ đây, với useFormStatus, mọi thứ được tích hợp sẵn, giúp code gọn gàng hơn rất nhiều.
+
+### 3. Cách sử dụng useFormStatus
+
+useFormStatus chỉ sử dụng được trong các thẻ `<form>` có hành động submit.
+
+<br />
+<HighLight
+  language="tsx"
+  code={`const { pending, data, method, action } = useFormStatus();`}
+/>
+<br />
+
+Trong đó:
+
+- **pending (`boolean`):**
+  - Là true nếu form đang trong quá trình gửi dữ liệu.
+  - Là false nếu không gửi.
+- **data:**
+  - Chứa dữ liệu của form dưới dạng **FormData.**
+  - Là null nếu không có form hoặc không có yêu cầu gửi nào đang diễn ra.
+- **method:**
+  - Chỉ định cách form gửi dữ liệu: GET hoặc POST.
+  - Mặc định là GET, nhưng có thể thay đổi bằng thuộc tính method của form.
+- **action:**
+  - Là tham chiếu đến hàm xử lý dữ liệu từ thuộc tính action của form.
+  - Nếu không có form hoặc action không phải là hàm (chỉ là URI), thì giá trị sẽ là null.
+
+### 4. Trước và sau khi dùng useFormStatus
+
+<BeforeAndAfterUseFormStatus />
+
+### 5. Ví dụ
+
+<UseFormStatusDemo />
+
+## useOptimistic
+
+### 1. useOptimistic là gì?
+
+- **useOptimistic** là một hook trong React 19, được thiết kế để cập nhật giao diện ngay lập tức, trước khi dữ liệu thực sự được xử lý hoặc phản hồi từ server.
+- **Mục tiêu chính:** Làm cho ứng dụng của bạn phản hồi nhanh nhạy hơn, tạo cảm giác “người dùng được phục vụ ngay”.
+
+### 2. Tại sao cần useOptimistic?
+
+Hãy tưởng tượng tình huống sau:
+
+- Người dùng nhấn “Thích” một bài viết.
+- Ứng dụng gửi yêu cầu đến server để ghi nhận hành động này.
+- Trong khi chờ server phản hồi, giao diện không cập nhật ngay, khiến người dùng có cảm giác “lag” hoặc không chắc liệu hành động của họ có thành công.
+
+Với useOptimistic, bạn có thể cập nhật giao diện ngay lập tức, làm tăng trải nghiệm người dùng, ngay cả khi server chưa trả lời.
+
+### 3. Cách hoạt động của useOptimistic
+
+Cú pháp của useOptimistic rất đơn giản:
+
+<br />
+<HighLight
+  language="tsx"
+  code={`const [state, updateOptimistically] = useOptimistic(initialState, optimisticUpdater);`}
+/>
+<br />
+
+- **state:** Trạng thái hiện tại (ban đầu là initialState).
+- **updateOptimistically:** Hàm để cập nhật trạng thái một cách lạc quan.
+- **optimisticUpdater:** Hàm xử lý logic cập nhật lạc quan.
+
+### 4. Ví dụ
+
+<UseOptimisticDemo />

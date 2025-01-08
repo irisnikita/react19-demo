@@ -16,7 +16,10 @@ export const HighLight: React.FC<Omit<HighlightProps, "children">> = (
   return (
     <ReactHighlight {...restProps} theme={themes.oneDark}>
       {({ /* className, */ style, tokens, getLineProps, getTokenProps }) => (
-        <pre style={style} className="p-4 rounded-lg">
+        <pre
+          style={style}
+          className="p-4 rounded-lg max-h-[500px] w-full overflow-auto"
+        >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line })}>
               {/* <span>{i + 1}</span> */}

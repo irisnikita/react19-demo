@@ -16,6 +16,7 @@ export const THEME: ThemeConfig = {
     Button: {
       fontWeight: 500,
       colorText: "var(--color-button-text)",
+      colorTextDisabled: "var(--color-text-description)",
     },
     Input: {
       colorText: "var(--color-button-text)",
