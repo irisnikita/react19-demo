@@ -26,8 +26,6 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
   const router = useRouter();
   const { currentMenu } = useSidebar();
 
-  console.log({ currentMenu });
-
   return (
     <Sider
       {...restProps}
