@@ -2,8 +2,8 @@
 
 // Libraries
 import { motion } from "motion/react";
-import React from "react";
-import { LiveProvider, LiveEditor, LivePreview } from "react-live";
+import React, { useState, useEffect } from "react";
+import { LiveProvider, LiveEditor, LivePreview, LiveError } from "react-live";
 import { styled } from "styled-components";
 
 // Components
@@ -35,7 +35,17 @@ const ReactPlayGroundWrapper = styled(motion.div)`
   }
 `;
 
-const defaultScope = { Input, Row, Col, Form, InputNumber, Button, List };
+const defaultScope = {
+  Input,
+  Row,
+  Col,
+  Form,
+  InputNumber,
+  Button,
+  List,
+  useState,
+  useEffect,
+};
 
 export const ReactPlayGround: React.FC<ReactPlayGroundProps> = (props) => {
   const { code, scope = defaultScope, ...restProps } = props;
@@ -52,6 +62,7 @@ export const ReactPlayGround: React.FC<ReactPlayGroundProps> = (props) => {
         <div className="react-playground__content">
           <LiveEditor className="font-mono" />
           <LivePreview />
+          <LiveError />
         </div>
       </LiveProvider>
     </ReactPlayGroundWrapper>

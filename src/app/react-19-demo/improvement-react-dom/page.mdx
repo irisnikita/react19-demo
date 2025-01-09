@@ -1,0 +1,39 @@
+import { NewFormAction, MetaDataDemo } from "./(components)";
+import { HighLight } from "@/components";
+
+export const metadata = {
+  title: "React 19 DOM: Metadata, Actions & Tối ưu Stylesheets",
+  description:
+    "Cải tiến DOM giúp quản lý biểu mẫu, metadata, và tải tài nguyên hiệu quả hơn.",
+};
+
+## 1. Hỗ trợ `<form>` actions
+
+### Vấn đề trước đây:
+
+Trước đây, khi xử lý biểu mẫu, chúng ta thường phải:
+
+- Viết hàm submit riêng và gắn sự kiện onSubmit.
+- Xử lý logic phức tạp để liên kết các nút hoặc hành động cụ thể với form.
+
+### Giải pháp trong React 19:
+
+React 19 cho phép truyền trực tiếp hàm xử lý vào thuộc tính action của `<form>` và formAction của các thành phần `<input>` hoặc `<button>`. Điều này giúp chúng ta viết code ngắn gọn, trực quan và dễ quản lý hơn.
+
+### Ví dụ:
+
+<NewFormAction />
+
+## 2. Hỗ trợ tài liệu Metadata
+
+### Vấn đề trước đây:
+
+Khi cần quản lý các thẻ `<title>`, `<meta>`, và `<link>` trong `<head>`, chúng ta phải sử dụng các thư viện như react-helmet hoặc xử lý thông qua document.head.
+
+### Cải tiến trong React 19:
+
+Giờ đây, React cho phép render các thẻ metadata này trực tiếp trong thành phần React, và chúng sẽ tự động được chèn vào `<head>`.
+
+### Ví dụ:
+
+<MetaDataDemo />

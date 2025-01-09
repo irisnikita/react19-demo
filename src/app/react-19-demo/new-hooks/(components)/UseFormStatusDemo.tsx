@@ -1,12 +1,7 @@
 "use client";
 
 // Libraries
-import React, {
-  useActionState,
-  useEffect,
-  useState,
-  useTransition,
-} from "react";
+import React, { useActionState, useTransition } from "react";
 import { useFormStatus } from "react-dom";
 
 // Services
@@ -66,18 +61,14 @@ render(<UseFormStatusDemo />);
 
 export const UseFormStatusDemo: React.FC = () => {
   return (
-    <>
-      <ReactPlayGround
-        code={demoCode}
-        scope={{
-          useTransition,
-          useState,
-          useEffect,
-          useActionState,
-          useFormStatus,
-          productServices,
-        }}
-      />
-    </>
+    <ReactPlayGround
+      code={demoCode}
+      scope={{
+        useTransition,
+        useActionState,
+        useFormStatus,
+        productServices,
+      }}
+    />
   );
 };

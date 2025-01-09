@@ -1,0 +1,64 @@
+import { ServerComponentDemo } from "./(components)";
+
+export const metadata = {
+  title: "React Server Components & Actions - Tăng tốc hiệu suất",
+  description:
+    "Tối ưu giao tiếp client-server với Server Components và Server Actions trong React 19.",
+};
+
+## 1. React Server Components (RSC)
+
+### Server Components là gì?
+
+- Server Components (RSC) cho phép React render các thành phần trực tiếp trên server thay vì client.
+- Mục tiêu chính:
+  - Giảm kích thước bundle gửi về client.
+  - Tăng hiệu suất tải trang bằng cách chỉ gửi những gì cần thiết.
+
+### Cách hoạt động
+
+- Các Server Components chạy trên server và chỉ gửi HTML hoặc JSON về client.
+- Client chỉ cần xử lý những thành phần “tương tác” (Interactive Components), giúp giảm tải cho client.
+
+### Lợi ích
+
+1. **Bundle nhẹ hơn:** Loại bỏ code JavaScript không cần thiết trên client.
+2. **Hiệu suất cao hơn:** Tối ưu thời gian tải và render.
+3. **Dễ tích hợp dữ liệu server:** Không cần gọi API riêng lẻ, dữ liệu được tích hợp trực tiếp.
+
+### Ví dụ: Server Components
+
+<ServerComponentDemo />
+<br />
+**Điểm nhấn:**
+
+- Dữ liệu được xử lý trên server và gửi trực tiếp tới client dưới dạng HTML.
+- Client chỉ tải thành phần tương tác, giảm bớt tải cho trình duyệt.
+
+## 2. Server Actions
+
+### Server Actions là gì?
+
+- Server Actions cho phép các thành phần client gọi hàm bất đồng bộ được thực thi trên server.
+- Giống như một API nội bộ, nhưng không cần viết endpoint riêng lẻ.
+
+### Cách hoạt động:
+
+- Thành phần client gọi một Server Action thông qua thuộc tính action.
+- Server Action thực hiện logic trên server, như cập nhật cơ sở dữ liệu hoặc xử lý logic nghiệp vụ.
+- Kết quả trả về client mà không cần xử lý phức tạp.
+
+### Lợi ích:
+
+- Giảm logic client: Không cần phải gửi yêu cầu HTTP thủ công (fetch, axios).
+- Bảo mật tốt hơn: Logic nhạy cảm được giữ trên server.
+- Tăng hiệu suất: Server xử lý nhanh hơn, giảm tải công việc cho client.
+
+## 3. Khi nào dùng RSC và Server Actions?
+
+- **Server Components (RSC):**
+  - Dùng để hiển thị dữ liệu tĩnh, không cần tương tác nhiều.
+  - Tối ưu khi làm việc với React Server Rendering (SSR).
+- **Server Actions:**
+  - Khi cần cập nhật dữ liệu hoặc thực hiện logic phía server.
+  - Thay thế các API endpoints truyền thống.

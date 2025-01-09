@@ -1,0 +1,56 @@
+import { RefDemo, PreloadingResources } from "./(components)";
+
+export const metadata = {
+  title: "Cải tiến trong React 19: ref linh hoạt & tối ưu tài nguyên",
+  description:
+    "React 19 nâng cấp ref, hydration, và preloading tài nguyên, tăng tốc độ và hiệu suất.",
+};
+
+## 1. ref như một prop
+
+### Vấn đề trước đây:
+
+- Khi cần truyền một ref vào các thành phần hàm (function components), chúng ta phải sử dụng React.forwardRef.
+- Điều này làm code trở nên phức tạp và khó đọc trong một số trường hợp.
+
+### Giải pháp trong React 19:
+
+- Giờ đây, bạn có thể truyền ref như một prop thông thường vào function components mà không cần dùng forwardRef.
+
+### Ví dụ:
+
+<RefDemo />
+
+### Lợi ích:
+
+- **Gọn gàng hơn:** Không cần bọc thành phần bằng forwardRef.
+- **Dễ đọc, dễ bảo trì:** Truyền ref như prop thông thường, code ngắn gọn và rõ ràng hơn.
+
+## 2. Preloading Resources
+
+### Vấn đề trước đây:
+
+- Khi ứng dụng cần tải nhiều tài nguyên như font, script hoặc hình ảnh, việc tải tài nguyên không đúng thứ tự hoặc không đồng bộ có thể làm giảm tốc độ tải trang.
+- Dev phải tự quản lý thứ tự tải hoặc thêm thẻ `<link>` vào `<head>`.
+
+### Giải pháp trong React 19:
+
+- React giới thiệu các API mới như preinit và preload, giúp bạn tải trước tài nguyên một cách tối ưu.
+
+### Ví dụ:
+
+<PreloadingResources />
+
+### Cách hoạt động:
+
+- preinit: Dùng để tải trước script hoặc module cần thiết.
+- preload: Dùng để tải trước font, ảnh, hoặc stylesheet.
+
+### Lợi ích:
+
+- Tăng tốc độ tải trang: Tài nguyên quan trọng được tải trước khi cần dùng.
+- Tránh chậm trễ: Giảm thời gian chờ do thiếu tài nguyên.
+- Dễ quản lý: Không cần viết thêm thẻ `<link>` thủ công.
+
+<br />
+[Tham khảo thêm về PreloadingResources](https://react.dev/blog/2024/12/05/react-19#support-for-preloading-resources)

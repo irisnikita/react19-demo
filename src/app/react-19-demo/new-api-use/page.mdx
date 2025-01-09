@@ -1,0 +1,46 @@
+import { UseDemo, UseWithContextDemo } from "./(components)";
+
+export const metadata = {
+  title: "React 19 API use - Làm việc với Promise và Context",
+  description:
+    "Sử dụng API use để đọc tài nguyên không đồng bộ và tích hợp Context dễ dàng hơn.",
+};
+
+## use là gì?
+
+- **use** là một API mới cho phép bạn đọc tài nguyên không đồng bộ (async resources) ngay trong quá trình render.
+- **Nó hỗ trợ:**
+  - **Promise:** Chờ và lấy kết quả của các Promise mà không cần các hook như useEffect.
+  - **Context:** Dễ dàng sử dụng dữ liệu từ Context, bao gồm cả dữ liệu không đồng bộ.
+
+## Tại sao use lại quan trọng?
+
+- Trước đây, khi làm việc với dữ liệu bất đồng bộ, chúng ta phải kết hợp các hook như useEffect hoặc xử lý phức tạp với trạng thái (useState).
+- Với use, React quản lý việc “chờ” dữ liệu trong quá trình render, giúp code:
+  - Ngắn gọn hơn.
+  - Dễ đọc hơn.
+  - Trực tiếp xử lý Promise ngay trong JSX.
+
+## Quy tắc sử dụng use
+
+- Phải dùng trong môi trường server: use chỉ hoạt động khi render phía server.
+- Kết hợp tốt với React Server Components (RSC): Đặc biệt mạnh khi sử dụng trong ứng dụng hỗ trợ React Server Components.
+
+## Ví dụ
+
+<UseDemo />
+
+## Tích hợp context với use
+
+<UseWithContextDemo />
+
+## Khi nào nên sử dụng use?
+
+- Khi làm việc với dữ liệu không đồng bộ cần chờ (fetch data, read files…).
+- Khi muốn tích hợp Context chứa dữ liệu không đồng bộ.
+- Khi làm việc trong React Server Components (RSC).
+
+## Hạn chế của use
+
+- Chỉ hoạt động trên server render: Không thể sử dụng trong client components.
+- Cần thiết kế tốt: Nếu dữ liệu không đồng bộ quá lớn, việc chờ đợi có thể làm chậm render.
