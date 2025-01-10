@@ -8,6 +8,8 @@ import { motion } from "motion/react";
 // Components
 import { Button } from "antd";
 
+const DELAY = 2;
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen">
@@ -30,6 +32,9 @@ export default function Home() {
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{
+            delay: DELAY,
+          }}
           className="text-4xl font-bold text-center"
         >
           Welcome to React 19
@@ -38,7 +43,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            delay: 0.3,
+            delay: DELAY + 0.3,
           }}
         >
           Explore the latest React features with this interactive demo.
@@ -47,7 +52,7 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            delay: 0.5,
+            delay: DELAY + 0.5,
           }}
         >
           <Link href={"/react-19-demo/introduction"} className="mt-2">
