@@ -81,6 +81,7 @@ export const PageLoading: React.FC<PageLoadingProps> = (props) => {
         loading: false,
       }));
     }, 2000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMenu]);
 
   return (
