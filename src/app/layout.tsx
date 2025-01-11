@@ -8,7 +8,7 @@ import "@/css/app.scss";
 
 // Providers
 import { Providers } from "./providers";
-import { PageLoading } from "@/components";
+// import { PageLoading } from "@/components";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +41,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${quicksand.variable} antialiased`}
       >
         <Providers>
-          <PageLoading />
+          {/* <PageLoading /> */}
           {children}
         </Providers>
       </body>
